@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-from src.main.xsys.crawler.config.MenuConfig import MenuConfig
+__author__ = "T0x1cEnv31ope"
+from src.main.xsys.config.MenuConfig import MenuConfig
 
 
 class CrawlerConfig(MenuConfig, object):

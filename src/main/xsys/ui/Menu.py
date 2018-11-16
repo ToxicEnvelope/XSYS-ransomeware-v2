@@ -1,9 +1,11 @@
 #!/usr/bin/env python
+__author__ = "T0x1cEnv31ope"
 import os
-from src.main.xsys.crawler.Crawler import Crawler
-from src.main.xsys.smtp.MailSender import Sender
+from src.main.xsys.core.XSYS import XSYS
+from src.main.xsys.core.Configurator import Configurator
 
-class Menu(Crawler, Sender):
+
+class Menu(Configurator, XSYS):
     """
         [Description]
         __init__
