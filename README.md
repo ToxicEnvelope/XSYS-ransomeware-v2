@@ -1,26 +1,25 @@
-# XSYS-ransomware-v2
+# XSYS-ransomeware-v2
 
 Any potentially malicious content in this repository is for testing/educational purposes and should be approached with caution.
 
-Updated version on XSYS-ransomware Project!
+Updated version on XSYS-ransomeware Project!
 
 
-XSYS-ransomware-v2 : Ransomware Trojan
+XSYS-ransomeware-v2 : Ransomeware Trojan
 
 
-This is a Ransomware Trojan program.
+This is a Ransomeware Trojan program.
 this program divided by modules:
 
 ---
 ###GUI Module:
 ######(src.main.xsys.ui) 
-    Menu.py             -   Responsible for main loop logic and GUI as a Console / teminal application.
-
+    * Menu.py             -   Responsible for main loop logic and GUI as a Console / teminal application.
 ---
 ###Core Modules:
 ######(src.main.xsys.core)
-    Configurator.py     -   The main configuration module, handle both MenuConfig and CrawlerConfig.
-    XSYS.py             -   The main logic mudule, handle the core functionalities of Crawler and MailSender.
+    * Configurator.py     -   The main configuration module, handle both MenuConfig and CrawlerConfig.
+    * XSYS.py             -   The main logic mudule, handle the core functionalities of Crawler and MailSender.
 ---
 ###Config Modules:
 ######(src.main.xsys.config)
@@ -29,16 +28,16 @@ this program divided by modules:
 ---   
 ###SMTP Module:
 ######(src.main.xsys.smtp)
-    MailSender.py       -   This module responsile to send notifications by emails via TorNet.
+    * MailSender.py       -   This module responsile to send notifications by emails via TorNet.
 --- 
 ###Crawler Module:
 ######(src.main.xsys.crawlers)
-    Crawler.py          -   This module responsible to manage the crawling and scannig events in the system,  
-
----                            Also, will use to add statistics about the system and display GUI tree pattens in the system.
+    * Crawler.py          -   This module responsible to manage the crawling and scannig events in the system,  
+                              Also, will use to add statistics about the system and display GUI tree pattens in the system.
+---                            
 ###Cryptography Module:
 ######(src.main.xsys.cryptography)
-    CryptoManager.py    -   This module responsible of all cryptography oporations such as AES, SHA256 and CDC block
+    * CryptoManager.py    -   This module responsible of all cryptography oporations such as AES, SHA256 and CDC block
                             manipulations on files system.                             
 ---
 ####Compile and Execute:    
