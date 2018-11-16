@@ -12,38 +12,44 @@ This is a Ransomeware Trojan program.
 this program divided by modules:
 
 ---
-###GUI Module:
-######(src.main.xsys.ui)
+GUI Module:
+
+(src.main.xsys.ui)
 
     * Menu.py             -   Responsible for main loop logic and GUI as a Console / teminal application.
 ---
-###Core Modules:
-######(src.main.xsys.core)
+Core Modules:
+
+(src.main.xsys.core)
 
     * Configurator.py     -   The main configuration module, handle both MenuConfig and CrawlerConfig.
     
     * XSYS.py             -   The main logic mudule, handle the core functionalities of Crawler and MailSender.
 ---
-###Config Modules:
-######(src.main.xsys.config)
+Config Modules:
+
+(src.main.xsys.config)
 
     * MenuConfig.py       -   The menu configuration module, used to divid properties and some flags.
     
     * CrawlerConfig.py    -   The crawler configutation module, responsileb to store critical properties as the main loop running.
 ---   
-###SMTP Module:
-######(src.main.xsys.smtp)
+SMTP Module:
+
+(src.main.xsys.smtp)
 
     * MailSender.py       -   This module responsile to send notifications by emails via TorNet.
 --- 
-###Crawler Module:
-######(src.main.xsys.crawlers)
+Crawler Module:
+
+(src.main.xsys.crawlers)
 
     * Crawler.py          -   This module responsible to manage the crawling and scannig events in the system,  
                               Also, will use to add statistics about the system and display GUI tree pattens in the system.
 ---                            
-###Cryptography Module:
-######(src.main.xsys.cryptography)
+Cryptography Module:
+
+(src.main.xsys.cryptography)
 
     * CryptoManager.py    -   This module responsible of all cryptography oporations such as AES, SHA256 and CDC block
                                manipulations on files system.                             
