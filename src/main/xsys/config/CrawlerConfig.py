@@ -11,13 +11,148 @@ class CrawlerConfig(MenuConfig, object):
     """
     def __init__(self):
         super(CrawlerConfig, self).__init__()
+        self.CHUNK_SIZE = 0
+        self.SUFFIX = None
+        self.SIXTEEN_BYTES = 0
+        self.HEX_e = None
+        self.HEX_d = None
+        self.HEX_r = None
+        self.HEX_l = None
+
+    """
+        [Description]
+        chunk_size
+        - This is a property function for CHUNK_SIZE value
+    """
+    @property
+    def chunk_size(self):
         self.CHUNK_SIZE = (65 * 1024)
+
+    """
+        [Description]
+        get_chunk_size
+        - This is a property getter
+    """
+    @chunk_size.getter
+    def get_chunk_size(self):
+        return self.chunk_size
+
+    """
+        [Description]
+        suffix
+        - This is a property function for SUFFIX value
+    """
+    @property
+    def suffix(self):
         self.SUFFIX = '.(encrypted)'
+
+    """
+        [Description]
+        get_suffix
+        - This is a property getter
+    """
+    @suffix.getter
+    def get_suffix(self):
+        return self.suffix
+
+    """
+        [Description]
+        sixteen_byte
+        - This is a property function for SIXTEEN_BYTES value
+    """
+    @property
+    def sixteen_byte(self):
         self.SIXTEEN_BYTES = 16
+
+    """
+        [Description]
+        get_byte_size
+        - This is a property getter
+    """
+    @sixteen_byte.getter
+    def get_byte_size(self):
+        return self.sixteen_byte
+
+    """
+        [Description]
+        hex_e
+        - This is a property function for HEX_e value
+    """
+    @property
+    def hex_e(self):
         self.HEX_e = '0x65'
+
+    """
+        [Description]
+        get_hex_e
+        - This is a property getter
+    """
+    @hex_e.getter
+    def get_hex_e(self):
+        return self.hex_e
+
+    """
+        [Description]
+        hex_d
+        - This is a property function for HEX_d value
+    """
+    @property
+    def hex_d(self):
         self.HEX_d = '0x64'
+
+    """
+        [Description]
+        get_hex_d
+        - This is a property getter
+    """
+    @hex_d.getter
+    def get_hex_d(self):
+        return self.hex_d
+
+    """
+        [Description]
+        hex_r
+        - This is a property function for HEX_r value
+    """
+    @property
+    def hex_r(self):
         self.HEX_r = '0x72'
+
+    """
+        [Description]
+        get_hex_r
+        - This is a property getter
+    """
+    @hex_r.getter
+    def get_hex_r(self):
+        return self.hex_r
+
+    """
+        [Description]
+        hex_l
+        - This is a property function for HEX_l value
+    """
+    @property
+    def hex_l(self):
         self.HEX_l = '0x6c'
+
+    """
+        [Description]
+        get_hex_l
+        - This is a property getter
+    """
+    @hex_l.getter
+    def get_hex_l(self):
+        return self.hex_l
+
+    """
+        [Description]
+        linear_file_crawler
+        - This method will be implemented inside Crawler.class
+    """
+    @staticmethod
+    def linear_file_crawler():
+        pass
 
 
 if __name__ == '__main__':

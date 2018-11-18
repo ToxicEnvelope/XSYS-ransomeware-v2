@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 __author__ = "T0x1cEnv31ope"
 import os
+import platform
 from src.main.xsys.core.XSYS import XSYS
 from src.main.xsys.core.Configurator import Configurator
 
@@ -26,7 +27,7 @@ class Menu(Configurator, XSYS):
     def init(self):
         self.clear_console()
         self.show_first_menu()
-        while self.FLAG:
+        while self.get_flag():
             main_choice = input('\n[?] Which operation would you like to do...? \
                                    \n\tD -> Decrypt \
                                    \n\tE -> Encrypt\n[$] ')
@@ -34,17 +35,34 @@ class Menu(Configurator, XSYS):
                 main_choice = main_choice[:len(main_choice)-len(main_choice)+1]
             hex_m_choice = hex(ord(main_choice.lower()))
             # hex(dec("e")) = 0x65
-            if hex_m_choice.__eq__(self.HEX_e):
+            if hex_m_choice.__eq__(self.get_hex_e()):
                 self.clear_console()
                 self.input_handler()
             # hex(dec("d")) = 0x64
-            elif hex_m_choice.__eq__(self.HEX_d):
+            elif hex_m_choice.__eq__(self.get_hex_d()):
                 self.clear_console()
                 self.input_handler()
             else:
                 print('[!] "{0}" is not supported choice..!'.format(hex_m_choice))
                 self.clear_console()
                 continue
+
+    """
+        [Description]
+        clear_console
+        - Clear the screen according to the running OS 
+
+        :returns -> lambda execution of os.command::clear_screen
+    """
+    def clear_console(self):
+        p = platform.platform()
+        p.lower()
+        if p.startswith(self.get_win()):
+            return lambda: os.system(self._CLS)
+        elif p.startswith(self.get_lin()):
+            return lambda: os.system(self._CLR)
+        else:
+            return lambda: os.system(self._CLR)
 
     """
         [Description]
@@ -60,10 +78,10 @@ class Menu(Configurator, XSYS):
             enc_choice = enc_choice[:len(enc_choice) - len(enc_choice) + 1]
         hex_e_choice = hex(ord(enc_choice.lower()))
         # hex(dec("r")) = 0x72
-        if hex_e_choice.__eq__(self.HEX_r):
+        if hex_e_choice.__eq__(self.get_hex_r()):
             print('\n[+] Current Location: {0}'.format(os.getcwd()))
             nav_choice = input('[>>] Move to a Root Dir for scan starting point\n[-] ')
-            if nav_choice.__eq__(self.EMPTY_STR) or len(nav_choice) <= 2:
+            if nav_choice.__eq__(self.get_empty_str()) or len(nav_choice) <= 2:
                 print('[!] Cannot use this `{0}` as path, must be at least 3 chars'.format(nav_choice))
                 nav_choice = input('[>>] Move to a Root Dir for scan starting point\n[-] ')
             os.chdir(nav_choice)
@@ -74,10 +92,10 @@ class Menu(Configurator, XSYS):
                 cntr += 1
                 print('[{0}] {1}'.format(cntr, file))
         # hex(dec("l")) = 0x6c
-        elif hex_e_choice.__eq__(self.HEX_l):
+        elif hex_e_choice.__eq__(self.get_hex_l()):
             print('\n[+] Current Location: {0}'.format(os.getcwd()))
             nav_choice = input('[>>] Move to a Root Dir for scan starting point\n[-] ')
-            if nav_choice.__eq__(self.EMPTY_STR) or len(nav_choice) <= 2:
+            if nav_choice.__eq__(self.get_empty_str()) or len(nav_choice) <= 2:
                 print('[!] Cannot use this `{0}` as path, must be at least 3 chars'.format(nav_choice))
                 nav_choice = input('[>>] Move to a Root Dir for scan starting point\n[-] ')
             os.chdir(nav_choice)
