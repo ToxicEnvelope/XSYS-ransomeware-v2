@@ -21,7 +21,7 @@ Core Modules: `src.main.xsys.core`
 
     * Configurator.py     -   The main configuration module, handle MenuConfig.
     
-    * SuperBase           -   The main logic mudule, handle the core functionalities
+    * SuperBase           -   The main logic module, handle the core functionalities
                               of Crawler and MailSender.
     
     * XSYS.py             -   The main object that delegates all core functionalities 
