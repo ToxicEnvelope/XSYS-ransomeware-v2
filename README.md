@@ -33,6 +33,9 @@ Config Modules: `src.main.xsys.config`
     
     * CrawlerConfig.py    -   The crawler configutation module, responsileb to store 
                               critical properties as the main loop running.
+    
+    * CryptConfig         -   The cryptography configuration module, used to divide 
+                              properties and indicator of encrypted files.
 ---   
 SMTP Module: `src.main.xsys.smtp`
 
