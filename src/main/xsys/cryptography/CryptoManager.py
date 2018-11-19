@@ -3,7 +3,7 @@ __author__ = "T0x1cEnv31ope"
 import os
 import platform
 import random
-from main.xsys.crawlers import Crawler
+from src.main.xsys.crawlers.Crawler import Crawler
 #from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
 
@@ -16,26 +16,6 @@ class CryptoManager(Crawler):
     """
     def __init__(self):
         super(CryptoManager, self).__init__()
-
-    """
-        [Description]
-        clear_console
-        - Clear the screen according to the running OS 
-         
-        :returns -> lambda execution of os.command::clear_screen
-    """
-    @staticmethod
-    def clear_console():
-        p = platform.platform()
-        if p.startswith('Win') or p.startswith('win'):
-            win = lambda: os.system('cls')
-            return win()
-        elif p.startswith('Lin') or p.startswith('lin'):
-            lin = lambda: os.system('clear')
-            return lin()
-        else:
-            drw = lambda: os.system('clear')
-            return drw()
 
     """
         [Description]

@@ -45,7 +45,7 @@ class Sender(object):
         self.SMTP.starttls()
         self.SMTP.ehlo()
         self.login()
-        self.SMTP.send(self._from, to, self._seeder.as_string())
+        self.SMTP.send(self._from, to, self._seeder.__str__())
 
 
 if __name__ == "__main__":

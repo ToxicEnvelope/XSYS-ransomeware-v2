@@ -4,10 +4,10 @@ __author__ = "T0x1cEnv31ope"
 import os
 import time
 import argparse
+from src.main.xsys.config.CrawlerConfig import CrawlerConfig
 
 
-class Crawler(object):
-
+class Crawler(CrawlerConfig, object):
     """
         [Description]
         _recurse
@@ -113,8 +113,7 @@ class Crawler(object):
             for names in files:
                 all_files.append(os.path.join(root, names))
         end_time = int(round(time.time() * 1000))
-        print('[Scan took {1} sec]\nTotal Files: {0}\n'.format(len(all_files), (end_time-start_time)/1000))
-        return all_files
+        return all_files, (end_time-start_time)/1000
 
 
 if __name__ == "__main__":

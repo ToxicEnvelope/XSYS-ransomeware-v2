@@ -18,29 +18,37 @@ GUI Module: `src.main.xsys.ui`
 ---
 Core Modules: `src.main.xsys.core`
 
-    * Configurator.py     -   The main configuration module, handle both MenuConfig and CrawlerConfig.
+    * Configurator.py     -   The main configuration module, handle MenuConfig.
     
-    * XSYS.py             -   The main logic mudule, handle the core functionalities of Crawler and MailSender.
+    * SuperBase           -   The main logic mudule, handle the core functionalities
+                              of Crawler and MailSender.
+    
+    * XSYS.py             -   The main object that delegates all core functionalities 
+                              as one instance handles SuperBase and Configurator. 
 ---
 Config Modules: `src.main.xsys.config`
 
-    * MenuConfig.py       -   The menu configuration module, used to divid properties and some flags.
+    * MenuConfig.py       -   The menu configuration module, used to divid properties 
+                              and some flags.
     
-    * CrawlerConfig.py    -   The crawler configutation module, responsileb to store critical properties as the main loop running.
+    * CrawlerConfig.py    -   The crawler configutation module, responsileb to store 
+                              critical properties as the main loop running.
 ---   
 SMTP Module: `src.main.xsys.smtp`
 
-    * MailSender.py       -   This module responsile to send notifications by emails via TorNet.
+    * MailSender.py       -   This module responsile to send notifications by emails
+                              via TorNet.
 --- 
 Crawler Module: `src.main.xsys.crawlers`
 
-    * Crawler.py          -   This module responsible to manage the crawling and scannig events in the system,  
-                              Also, will use to add statistics about the system and display GUI tree pattens in the system.
+    * Crawler.py          -   This module responsible to manage the crawling and scannig
+                              events in the system. Also, will use to add statistics about
+                              the system and display GUI tree pattens in the system.
 ---                            
 Cryptography Module: `src.main.xsys.cryptography`
 
-    * CryptoManager.py    -   This module responsible of all cryptography oporations such as AES, SHA256 and CDC block
-                               manipulations on files system.                             
+    * CryptoManager.py    -   This module responsible of all cryptography oporations such
+                              as AES, SHA256 and CDC block manipulations on files system.                             
 ---
 Compile and Execute:    
     In order to complie and execute this project,
