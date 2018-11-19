@@ -10,70 +10,10 @@ class CrawlerConfig(object):
     """
     def __init__(self):
         super(CrawlerConfig, self).__init__()
-        self.CHUNK_SIZE = 0
-        self.SUFFIX = None
-        self.SIXTEEN_BYTES = 0
         self.HEX_e = None
         self.HEX_d = None
         self.HEX_r = None
         self.HEX_l = None
-
-    """
-        [Description]
-        chunk_size
-        - This is a property function for CHUNK_SIZE value
-    """
-    @property
-    def chunk_size(self):
-        self.CHUNK_SIZE = (65 * 1024)
-        return self.CHUNK_SIZE
-
-    """
-        [Description]
-        get_chunk_size
-        - This is a property getter
-    """
-    @chunk_size.getter
-    def get_chunk_size(self):
-        return self.chunk_size
-
-    """
-        [Description]
-        suffix
-        - This is a property function for SUFFIX value
-    """
-    @property
-    def suffix(self):
-        self.SUFFIX = '.(encrypted)'
-        return self.SUFFIX
-
-    """
-        [Description]
-        get_suffix
-        - This is a property getter
-    """
-    @suffix.getter
-    def get_suffix(self):
-        return self.suffix
-
-    """
-        [Description]
-        sixteen_byte
-        - This is a property function for SIXTEEN_BYTES value
-    """
-    @property
-    def sixteen_byte(self):
-        self.SIXTEEN_BYTES = 16
-        return self.SIXTEEN_BYTES
-
-    """
-        [Description]
-        get_byte_size
-        - This is a property getter
-    """
-    @sixteen_byte.getter
-    def get_byte_size(self):
-        return self.sixteen_byte
 
     """
         [Description]
@@ -162,15 +102,11 @@ class CrawlerConfig(object):
 
 
 if __name__ == '__main__':
-    assert CrawlerConfig().CHUNK_SIZE.__eq__(66560), \
-        'Assert Failed -> CHUNK_SIZE is not {0}'.format(CrawlerConfig().CHUNK_SIZE)
-    assert CrawlerConfig().SUFFIX.__eq__('.(encrypted)'), \
-        'Assert failed -> SUFFIX is not {0}'.format(CrawlerConfig().SUFFIX)
-    assert CrawlerConfig().HEX_e.__eq__(hex(ord('e'))), \
-        'Assert failed -> HEX_e is not {0}'.format(CrawlerConfig().HEX_e)
-    assert CrawlerConfig().HEX_d.__eq__(hex(ord('d'))), \
-        'Assert failed -> HEX_d is not {0}'.format(CrawlerConfig().HEX_d)
-    assert CrawlerConfig().HEX_r.__eq__(hex(ord('r'))), \
-        'Assert failed -> HEX_r is not {0}'.format(CrawlerConfig().HEX_r)
-    assert CrawlerConfig().HEX_l.__eq__(hex(ord('l'))), \
-        'Assert failed -> HEX_l is not {0}'.format(CrawlerConfig().HEX_l)
+    assert CrawlerConfig().get_hex_e.__eq__(hex(ord('e'))), \
+        'Assert failed -> HEX_e is not {0}'.format(CrawlerConfig().get_hex_e)
+    assert CrawlerConfig().get_hex_d.__eq__(hex(ord('d'))), \
+        'Assert failed -> HEX_d is not {0}'.format(CrawlerConfig().get_hex_d)
+    assert CrawlerConfig().get_hex_r.__eq__(hex(ord('r'))), \
+        'Assert failed -> HEX_r is not {0}'.format(CrawlerConfig().get_hex_r)
+    assert CrawlerConfig().get_hex_l.__eq__(hex(ord('l'))), \
+        'Assert failed -> HEX_l is not {0}'.format(CrawlerConfig().get_hex_l)

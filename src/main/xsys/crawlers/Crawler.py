@@ -10,6 +10,14 @@ from src.main.xsys.config.CrawlerConfig import CrawlerConfig
 class Crawler(CrawlerConfig, object):
     """
         [Description]
+        __init__
+        - Construct a Crawler Object
+    """
+    def __init__(self):
+        super(Crawler, self).__init__()
+
+    """
+        [Description]
         _recurse
         - this method will recurse over a given path and
           and build a GUI display pattern of all files under it. 

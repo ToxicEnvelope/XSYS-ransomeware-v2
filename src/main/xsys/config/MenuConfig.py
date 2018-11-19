@@ -148,11 +148,11 @@ class MenuConfig(object):
 
 
 if __name__ == '__main__':
-    assert MenuConfig().get_flag().__eq__(True), \
-        'Assert Failed -> FLAG is not {0}'.format(MenuConfig().get_flag())
-    assert MenuConfig().get_empty_str().__eq__(''), \
-        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_empty_str())
+    assert MenuConfig().get_flag.__eq__(True), \
+        'Assert Failed -> FLAG is not {0}'.format(MenuConfig().get_flag)
+    assert MenuConfig().get_empty_str.__eq__(''), \
+        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_empty_str)
     assert MenuConfig().get_win.__eq__('win'), \
-        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_win())
-    assert MenuConfig().get_lin().__eq__('lin'), \
-        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_lin())
+        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_win)
+    assert MenuConfig().get_lin.__eq__('lin'), \
+        'Assert Failed -> EMPTY_STR is not {0}'.format(MenuConfig().get_lin)
