@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 __author__ = "T0x1cEnv31ope"
-from src.main.xsys.config.MenuConfig import MenuConfig
 
 
-class CrawlerConfig(MenuConfig, object):
+class CrawlerConfig(object):
     """
         [Description]
         __init__
@@ -27,6 +26,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def chunk_size(self):
         self.CHUNK_SIZE = (65 * 1024)
+        return self.CHUNK_SIZE
 
     """
         [Description]
@@ -45,6 +45,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def suffix(self):
         self.SUFFIX = '.(encrypted)'
+        return self.SUFFIX
 
     """
         [Description]
@@ -63,6 +64,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def sixteen_byte(self):
         self.SIXTEEN_BYTES = 16
+        return self.SIXTEEN_BYTES
 
     """
         [Description]
@@ -81,6 +83,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def hex_e(self):
         self.HEX_e = '0x65'
+        return self.HEX_e
 
     """
         [Description]
@@ -99,6 +102,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def hex_d(self):
         self.HEX_d = '0x64'
+        return self.HEX_d
 
     """
         [Description]
@@ -117,6 +121,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def hex_r(self):
         self.HEX_r = '0x72'
+        return self.HEX_r
 
     """
         [Description]
@@ -135,6 +140,7 @@ class CrawlerConfig(MenuConfig, object):
     @property
     def hex_l(self):
         self.HEX_l = '0x6c'
+        return self.HEX_l
 
     """
         [Description]
