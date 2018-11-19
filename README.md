@@ -14,7 +14,8 @@ this program divided by modules:
 ---
 GUI Module: `src.main.xsys.ui`
 
-    * Menu.py             -   Responsible for main loop logic and GUI as a Console / teminal application.
+    * Menu.py             -   Responsible for main loop logic and GUI as a 
+                              Console / Terminal application.
 ---
 Core Modules: `src.main.xsys.core`
 
@@ -54,7 +55,7 @@ Cryptography Module: `src.main.xsys.cryptography`
                               as AES, SHA256 and CDC block manipulations on files system.                             
 ---
 Compile and Execute:    
-    In order to complie and execute this project,
+    In order to compile and execute this project,
     you want to install `pyinstaller` module.
     Follow the instruction below in the link about the HOW-TO compile to .exe
     
