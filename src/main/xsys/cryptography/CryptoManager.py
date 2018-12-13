@@ -3,7 +3,7 @@ __author__ = "T0x1cEnv31ope"
 import os
 import random
 from src.main.xsys.config.CryptConfig import CryptConfig
-#from Crypto.Hash import SHA256
+from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
 
 
@@ -25,7 +25,8 @@ class CryptoManager(CryptConfig, object):
     """
     def encrypt(self, key, filename):
         out_file = os.path.join(os.path.dirname(filename), self.get_suffix + os.path.basename(filename))
-        file_size = str.format(os.path.getsize(filename)).zfill(self.get_byte_size)
+
+        file_size = str(os.path.getsize(filename)).zfill(self.get_byte_size)
         iv = ''
         for i in range(self.get_byte_size):
             iv += chr.__format__(random.randint(0, 0xFF))
@@ -66,6 +67,17 @@ class CryptoManager(CryptConfig, object):
                     break
                 outfile.write(decrypter.decrypt(chunk))
             outfile.truncate(int(file_size))
+
+    """
+        [Description]
+        produce_sha256_key
+        - Encrypt a given key
+        :param -> key:str - a key to be encrypted
+        :returns -> a Hash key signature using SHA256 algorithm 
+    """
+    @staticmethod
+    def produce_sha256_key(key):
+        return SHA256.new(key).digest()
 
 
 if __name__ == '__main__':

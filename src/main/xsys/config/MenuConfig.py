@@ -29,24 +29,6 @@ class MenuConfig(object):
 
     """
         [Description]
-        set_flag
-        - This is a property setter         
-    """
-    @flag.setter
-    def set_flag(self, state):
-        self.FLAG = state
-
-    """
-        [Description]
-        get_flag
-        - This is a property getter
-    """
-    @flag.getter
-    def get_flag(self):
-        return self.flag
-
-    """
-        [Description]
         empty_str
         - This is a property function for EMPTY_STR value
     """
@@ -54,15 +36,6 @@ class MenuConfig(object):
     def empty_str(self):
         self.EMPTY_STR = ''
         return self.EMPTY_STR
-
-    """
-        [Description]
-        get_empty_str
-        - This is a property getter
-    """
-    @empty_str.getter
-    def get_empty_str(self):
-        return self.empty_str
 
     """
         [Description]
@@ -76,14 +49,6 @@ class MenuConfig(object):
 
     """
         [Description]
-        - This is a property getter
-    """
-    @win_str.getter
-    def get_win(self):
-        return self.win_str
-
-    """
-        [Description]
         lin_str
         - This is a property function for LIN value
     """
@@ -91,15 +56,6 @@ class MenuConfig(object):
     def lin_str(self):
         self.LIN = 'lin'
         return self.LIN
-
-    """
-        [Description]
-        get_lin
-        - This is a property getter
-    """
-    @lin_str.getter
-    def get_lin(self):
-        return self.lin_str
 
     """
         [Description]

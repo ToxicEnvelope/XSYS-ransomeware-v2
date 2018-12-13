@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 from src.main.xsys.core.Configurator import Configurator
-from src.main.xsys.core.SuperBase import SuperBase
+from main.xsys.utils.DelegateCore import DelegateCore
 
 
-class XSYS(Configurator, SuperBase):
+class XSYS(Configurator, DelegateCore):
     """
         [Description]
         __init__

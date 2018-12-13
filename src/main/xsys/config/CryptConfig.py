@@ -9,6 +9,7 @@ class CryptConfig(object):
         self.CHUNK_SIZE = 0
         self.SUFFIX = None
         self.SIXTEEN_BYTES = 0
+        self.DEFAULT_SIGNATURE_KEY = None
 
     """
         [Description]
